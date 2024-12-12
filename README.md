@@ -36,6 +36,9 @@ Modify the string `cc9cbcc44893d9601186ed793b76ac72a56a3e176be51252819b38f7d2f1f
 
 Then, run `encoder.py` and it will fetch some dynamic values required for encoding, then encode your value and print it
 
+# Credit
+[Emrovsky](https://github.com/emrovsky) - helped to figure out what was dynamic & made char mapper
+
 # Contact
 
 If you need help or are interested in stuff like this, please contact me on discord or telegram: 
