@@ -22,6 +22,7 @@ class Encoder:
             self.mapping = self.mapp[version]['mapping']
             self.mapping_num = int(self.mapp[version]['mapping_num'])
             
+        # I'm not gonna rename all of these, but it's easy to understand what is what
         self.zA = 83
         self.OA = datetime.datetime.now().hour
         self.YA = -3203492822000
@@ -77,7 +78,8 @@ class Encoder:
         return result
  
     def ooA(self, A, Q):
-        C = int(A + self.mapping_num)  
+        # I'm not gonna rename all of these, but it's easy to understand what is what
+        C = ~~int(A + self.mapping_num)  
         g = C if C >= 0 else 1 + ~C 
         
         D = {}
@@ -98,6 +100,7 @@ class Encoder:
         return D, ''.join(M)
 
     def encode(self, A):
+        # I'm not gonna rename all of these, but it's easy to understand what is what
         I = str(A)
         C = self.rA
         D = len(I)
