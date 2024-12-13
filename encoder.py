@@ -46,9 +46,6 @@ class Encoder:
         self.xA = re.compile(r'[a-z\d.,/#!$%^&*;:{}=\-_~()\s]', re.IGNORECASE)
         
     def fetcher(self, version):
-        self.jsdom = require('jsdom')
-        self.evaluate = require("vm").Script
-        self.vm = self.jsdom.JSDOM("<title></title>", {"runScripts": "dangerously"}).getInternalVMContext()
         hsw = requests.get(f'https://newassets.hcaptcha.com/c/{version}/hsw.js').text
         num = int(hsw.split("=~~(A+")[1].split("),")[0])
         if '".split("")' in hsw:
@@ -71,6 +68,9 @@ class Encoder:
         return mapping, num
  
     def decode(self, index, hsw):
+        self.jsdom = require('jsdom')
+        self.evaluate = require("vm").Script
+        self.vm = self.jsdom.JSDOM("<title></title>", {"runScripts": "dangerously"}).getInternalVMContext()
         func = hsw.split("(){return!0}))}function ")[1].split("(")[0]
         hsw = hsw.replace("if(0===A)", f"if(2===A)return {func}({index});if(0===A)")
         self.evaluate(hsw).runInContext(self.vm)
